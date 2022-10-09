@@ -1,0 +1,13 @@
+block loop
+    sub     4       cnt     1
+    rez     cnt
+endblock
+
+block main
+    var     4       cnt     0x7fffff
+    call    loop
+    ret
+endblock
+
+# 不带输出循环减法需要 6s
+# 大概每秒可以跑 1e7

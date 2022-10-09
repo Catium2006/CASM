@@ -1,0 +1,7 @@
+include include2.casm
+
+block main
+    var     4       cnt     0xff
+    call    loop
+    ret
+endblock

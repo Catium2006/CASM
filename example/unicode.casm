@@ -1,0 +1,10 @@
+block 块
+    pint    变量
+    ret
+endblock
+
+block main
+    var     2       变量    -1
+    call    块
+    ret
+endblock

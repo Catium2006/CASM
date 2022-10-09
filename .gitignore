@@ -33,3 +33,6 @@
 
 # Clang formater
 .clang-format
+
+# VS Code
+.vscode

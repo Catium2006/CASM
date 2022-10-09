@@ -1,0 +1,7 @@
+
+block loop
+    sub     4       cnt     1
+    pint    cnt
+    pchar   0x0a
+    rez     cnt
+endblock

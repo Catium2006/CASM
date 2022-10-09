@@ -1,0 +1,63 @@
+# CASM 2022/10/2 code by Catium2006
+# name: HelloWorld.casm
+
+block main                          # 程序入口
+    call    build                   # 被调用的代码块不需要先声明
+    call    print
+    call    clear
+    ret
+endblock
+
+block build                         # 构建字符串
+    var     16      str     0       # 字符串, 最大容量16个字节
+    var     4       p       0       # 放指针的变量
+    addr    p       str             # 取出字符串的地址
+    
+    # 下面开始逐字节写字符串的内容
+    mov     1       [p]     0x48    # H
+    add     4       p       1
+    mov     1       [p]     0x65    # e
+    add     4       p       1
+    mov     1       [p]     0x6c    # l
+    add     4       p       1
+    mov     1       [p]     0x6c    # l
+    add     4       p       1
+    mov     1       [p]     0x6f    # o
+    add     4       p       1
+    mov     1       [p]     0x2c    # ,
+    add     4       p       1
+    mov     1       [p]     0x20    # [space]
+    add     4       p       1
+    mov     1       [p]     0x57    # W
+    add     4       p       1
+    mov     1       [p]     0x6f    # o
+    add     4       p       1
+    mov     1       [p]     0x72    # r
+    add     4       p       1
+    mov     1       [p]     0x6c    # l
+    add     4       p       1
+    mov     1       [p]     0x64    # d
+    add     4       p       1
+    mov     1       [p]     0x21    # !
+    add     4       p       1
+    mov     1       [p]     0x0a    # \n
+
+    var     1       ch      0x00    # 放每次输出的字符的变量
+    addr    p       str             # 指针归位
+    
+    ret
+endblock
+
+block print                         # 循环输出字符串
+    mov     1       ch      [p]     # 取出一个字符
+    add     4       p       1       # 前进一个字节
+    rez     ch                      # 读到\0就结束, 否则继续循环输出
+    pchar   ch                      # 输出
+endblock
+
+block clear                         # 释放变量
+    del     str
+    del     p
+    del     ch
+    ret
+endblock
