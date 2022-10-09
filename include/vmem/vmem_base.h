@@ -4,8 +4,9 @@ using namespace std;
 
 #include "type.h"
 
+// 默认定义128MB
 #ifndef VMEM_SIZE
-#define VMEM_SIZE 1024 * 1024
+#define VMEM_SIZE 1024 * 1024 * 128
 #endif
 
 extern u8 vmem[VMEM_SIZE];
