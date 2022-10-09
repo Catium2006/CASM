@@ -6,6 +6,8 @@
 #include "system/tools.h"
 #include "type.h"
 
+// 单独做成函数的指令都以 func_ 开头
+
 void func_mov(string sizes, string op0s, string op1s);
 
 void func_var(string sizes, string op0s, string op1s);

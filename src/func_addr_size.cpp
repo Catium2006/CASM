@@ -2,6 +2,7 @@
 #include "var/var.h"
 #include "vmem/vmem.h"
 
+// 取地址
 void func_addr(string op0s, string op1s) {
     if (is_var(op0s)) {
         if (is_var(op1s)) {
@@ -17,6 +18,7 @@ void func_addr(string op0s, string op1s) {
     }
 }
 
+// 取长度
 void func_size(string op0s, string op1s) {
     if (is_var(op0s)) {
         if (is_var(op1s)) {

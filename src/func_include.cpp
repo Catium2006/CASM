@@ -5,6 +5,7 @@
 using namespace std;
 
 void func_include(string op0s) {
+    // 解析文件流
     ifstream ifs;
     ifs.open(op0s);
     if (ifs.good()) {

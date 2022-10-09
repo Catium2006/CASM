@@ -24,6 +24,7 @@ operand_type get_operand_type(string str) {
     return NUL;
 }
 
+// 逐行解释块内代码
 void execute_block(string name) {
 #ifdef ECHO_BLOCK_NAME
     cout << name << endl;

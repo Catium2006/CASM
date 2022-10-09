@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// 解析一个十进制整数
 s64 parse_int(string str) {
     s64 ret = 0;
     s64 start = 0;
@@ -21,8 +22,10 @@ s64 parse_int(string str) {
     return f ? -ret : ret;
 }
 
+// 解析一个十六进制整数
 s64 parse_hex(string str) {
     s64 ret = 0;
+    // 跳过 "0x"
     for (int i = 2; i < str.size(); i++) {
         char c = str[i];
         ret *= 16;
@@ -35,6 +38,7 @@ s64 parse_hex(string str) {
     return ret;
 }
 
+// 解析一个 数
 s64 parse_num(string str) {
     if (is_int(str)) {
         return parse_int(str);
@@ -44,6 +48,7 @@ s64 parse_num(string str) {
     }
 }
 
+// 判断是不是十六进制数
 bool is_hex(string str) {
     bool f0 = str.size() >= 3;
     bool f1 = (str[0] == '0' && str[1] == 'x');
@@ -62,6 +67,7 @@ bool is_hex(string str) {
     return f0 && f1 && f2;
 }
 
+// 判断是不是十进制数
 bool is_int(string s) {
     if (s[0] == '-') {
         for (int i = 1; i < s.size(); i++) {
@@ -79,6 +85,7 @@ bool is_int(string s) {
     return true;
 }
 
+// 判断是不是 数
 bool is_num(string s) {
     return is_int(s) || is_hex(s);
 }
@@ -94,7 +101,7 @@ bool is_mr(string str) {
     return false;
 }
 
-//解析符合要求的内存[地址]
+// 解析符合要求的内存[地址]
 u32 parse_mr(string str) {
     string s = str.substr(1, str.size() - 2);
     u32 ret = 0;
