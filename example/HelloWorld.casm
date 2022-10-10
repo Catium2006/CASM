@@ -8,37 +8,49 @@ block main                          # 程序入口
     ret
 endblock
 
+# 定义ascii常量
+define _H 0x48
+define _e 0x65
+define _l 0x6c
+define _o 0x6f
+define _, 0x2c
+define _space 0x20
+define _W 0x57
+define _r 0x72
+define _d 0x64
+define _! 0x21
+
 block build                         # 构建字符串
     var     16      str     0       # 字符串, 最大容量16个字节
     var     4       p       0       # 放指针的变量
     addr    p       str             # 取出字符串的地址
     
     # 下面开始逐字节写字符串的内容
-    mov     1       [p]     0x48    # H
+    mov     1       [p]     _H
     add     4       p       1
-    mov     1       [p]     0x65    # e
+    mov     1       [p]     _e
     add     4       p       1
-    mov     1       [p]     0x6c    # l
+    mov     1       [p]     _l
     add     4       p       1
-    mov     1       [p]     0x6c    # l
+    mov     1       [p]     _l
     add     4       p       1
-    mov     1       [p]     0x6f    # o
+    mov     1       [p]     _o
     add     4       p       1
-    mov     1       [p]     0x2c    # ,
+    mov     1       [p]     _,
     add     4       p       1
-    mov     1       [p]     0x20    # [space]
+    mov     1       [p]     _space
     add     4       p       1
-    mov     1       [p]     0x57    # W
+    mov     1       [p]     _W
     add     4       p       1
-    mov     1       [p]     0x6f    # o
+    mov     1       [p]     _o
     add     4       p       1
-    mov     1       [p]     0x72    # r
+    mov     1       [p]     _r
     add     4       p       1
-    mov     1       [p]     0x6c    # l
+    mov     1       [p]     _l
     add     4       p       1
-    mov     1       [p]     0x64    # d
+    mov     1       [p]     _d 
     add     4       p       1
-    mov     1       [p]     0x21    # !
+    mov     1       [p]     _!
     add     4       p       1
     mov     1       [p]     0x0a    # \n
 
