@@ -1,0 +1,13 @@
+
+define _cnt cnt
+
+block main
+    var     4       cnt     1
+    pint    cnt
+    pchar   0x0a
+    
+    add     4       _cnt    1
+
+    pint    cnt
+    ret
+endblock

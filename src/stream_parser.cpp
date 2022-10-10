@@ -1,8 +1,9 @@
 #include "exec/executor.h"
+#include "exec/functions.h"
+#include "exec/macro.h"
 #include "exec/parse.h"
 #include "system/panic.h"
 #include "system/tools.h"
-#include "exec/functions.h"
 
 bool parse_stream(istream& istr) {
     if (istr.bad()) {
@@ -37,6 +38,10 @@ bool parse_stream(istream& istr) {
                 if (str == "endblock") {
                     break;
                 }
+                // 在这里用宏定义替换
+                if (is_defined(str)) {
+                    str = get_definition(str);
+                }
                 codes.push_back(str);
             }
             new_block(name, codes);
@@ -47,6 +52,17 @@ bool parse_stream(istream& istr) {
                 panic("filename is undefined.");
             }
             func_include(op0s);
+        }
+        if (str == "define") {
+            string op0s;
+            string op1s;
+            istr >> op0s >> op1s;
+            func_define(op0s, op1s);
+        }
+        if (str == "undef") {
+            string op0s;
+            istr >> op0s;
+            func_undef(op0s);
         }
     }
 
