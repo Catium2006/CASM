@@ -129,8 +129,8 @@ CASM是不进行内存保护的, 您可以用`[]`操作符访问任意地址的�
 
 # 指令
 指令分为块内指令和块外指令.  
-+ 块外指令由[流解释器](src/executor.cpp#parse_stream)解释并分割成块.  
-+ 块内指令由[块解释器](src/executor.cpp#execute_block)解释并执行.  
++ 块外指令由[流解释器](src/stream_parser)解释并分割成块.  
++ 块内指令由[块解释器](src/block_parser)解释并执行.  
 
 ## 块内指令
 
